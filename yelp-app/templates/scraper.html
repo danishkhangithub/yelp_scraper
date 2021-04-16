@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block body %}
+<form action="" class = "form-control">
+<section>
+<h3>Graduation</h3>
+<select required class = "form-control">
+   <option value="">None</option>
+   <option value="bca">BCA</option>
+   <option value="bcom">B.COM</option>
+   <option value="btech">B.TECH</option>
+</select>
+</section>
+<section>
+<h3>Postgraduation</h3>
+<select required class = "form-control">
+   <option value="">None</option>
+   <option value="mcom">M.COM</option>
+   <option value="mtech">M.TECH</option>
+   <option value="msc">M.Sc</option>
+</select>
+</section><br>
+<input type="submit" value="Next">
+</form>
+
+{% endblock %}

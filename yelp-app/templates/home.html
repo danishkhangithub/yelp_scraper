@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class = "container">
+  
+  <div class = "row " >  
+     <div class = "col">
+      <div class = "card">
+        <div class = "card-body text-center" style="background: #f57b42">
+         <h4 class = "text-light" ><strong>Yelp Scraper</strong></h4>
+        </div> 
+      </div>
+     </div>
+   </div> 
+
+   <div class = "row mt-4">
+     <div class = "col">
+       <div class = "card">
+         <div class = "card-body">
+          
+              <select required   id = "category" class="form-control " style="width:30%"  >
+              <option value="" >Select category</option>
+              {% for category in categories %}
+                  <option value = "{{category}}" >{{category}}</option>
+              {% endfor %}
+              </select>
+              <select required id = "states" class="form-control mt-4 yt-4"  style="width:30%" required="required">
+              <option value="">select State</option>
+              {% for state in states %}
+                  <option >{{state}}</option>
+              {% endfor %}
+             
+              
+              </select>
+              
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class = "row  mt-4" style="width:100%" >  
+     <div class = "col justify-content-md-center">
+      <div class = "card" >
+        
+          <input id = 'scrape' type="submit" class="btn btn-success " style = "width:30%" value = Submit>
+          <div class="mt-4 text-center">No data yet...</div>
+           <p id = "status" class = "ml-4"> </p>
+        </div> 
+      </div>
+     </div>
+    
+   <section>
+
+  </div> 
+
+  
+  <script type = "text/javascript">
+    $('#scrape').on('click', () => {
+        
+        // update status
+        $('#status').text('scraper...')
+
+        var category = $('#category').val()
+        var states = $('#states').val()
+ 
+        $.post('/home', {'category' : category, 'states' : states }, (res) => {
+            
+              $('#status').text('') 
+              console.log(res)
+            }
+             
+              );
+              
+    })
+        
+  </script>   
+{% endblock %}
+
