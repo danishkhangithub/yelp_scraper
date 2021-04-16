@@ -66,7 +66,7 @@ def home():
               f.write(json.dumps(states2, indent=4))   
               
               
-          process =  subprocess.Popen('python3 yelp4.py ', shell = True)
+          process =  subprocess.Popen('python3 yelp.py ', shell = True)
           process.wait()
           return 'ok'
       return 'seccess'
